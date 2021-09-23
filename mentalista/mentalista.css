@@ -62,6 +62,7 @@ body::after {
   position: absolute;
   z-index: -1;   
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .h1 {
@@ -111,5 +112,12 @@ body::after {
   margin-top: 40px;
 }
 
+.copyright {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 0px 20px lime;
+}
 
 
