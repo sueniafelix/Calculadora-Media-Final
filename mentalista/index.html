@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Mentalista - Adivinhação</title>
+    <link href="mentalista.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+
+    <div class="container">
+        <img class="hide logo-imersao" src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" alt="">
+        <div class="logo">imersão <span>dev_</span></div>
+        <br/>
+        <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="">
+    </div>    
+    <h1 class="text-glow">Mentalista</h1>
+    
+    <div id="play_area">
+        <p class="subtitulo">Descubra o número secreto entre 0 e 10!</p>
+
+        <label class="label" >Digite o número</label>
+
+        <form action="" method="post" onsubmit="return chutar()"> 
+            <input class="valor" type="number" id="valor" min="0" max="10" required/><br/>
+            <button class="chutar btn" type="submit" id="chute" value="chutar">Chutar</button>
+        </form>
+    </div>
+    <h3 id="resultado"></h3>
+
+    <button class="hide btn" id="reiniciar" type="submit" value="reiniciar partida" onclick="location.reload();">Reiniciar Partida</button>
+ 
+    <div>by Suenia Felix</div> 
+
+<script>
+
+    let numeroSecreto = parseInt(Math.random() * 11);    
+    let tentativas = 3;
+    let reiniciar = document.getElementById("reiniciar");
+    let playArea = document.getElementById("play_area");
+
+    function chutar(){
+        tentativas= tentativas-1;       
+
+        let valorChute = parseInt(document.getElementById("valor").value);
+        let resultado = document.getElementById("resultado");
+
+
+        if (valorChute == numeroSecreto){
+            resultado.innerHTML =
+             "Parabéns! Você acertou!";
+            reiniciar.classList.remove("hide");
+            playArea.classList.add("hide");
+        } else if (tentativas==0){
+            resultado.innerHTML = `Suas chances acabaram! o número secreto é ${numeroSecreto}`;
+            reiniciar.classList.remove("hide");
+            playArea.classList.add("hide");            
+        } else if (numeroSecreto < valorChute){
+            resultado.innerHTML = `O número secreto é menor que ${valorChute}`;
+        } else if(numeroSecreto > valorChute){
+            resultado.innerHTML = `O número secreto é maior que ${valorChute}`;
+        } 
+
+        return false;
+    }
+
+</script>
+
+</body>
+</html>
+
+

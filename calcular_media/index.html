@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando Média final </title>
+    <link href="calcmedia.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+    <h1>CALCULADORA DE MÉDIA</h1>
+
+    <div class="container">
+         <img class="img" src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" alt="">
+         <br/>
+         <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="">
+    </div>
+
+    <div class="content">          
+        <div class="box">      
+            <div class="itens">
+                <form name="formCalcMedia" action="" method="post" onsubmit="return calcula()">
+                    Nota (1º Bimestre): <input type="number" name="f_notaPrimeiroBimestre"  min="0" max="10" step="0.01" required/><br></br>
+                    Nota (2º Bimestre): <input type="number" name="f_notaSegundoBimestre" min="0" max="10" step="0.01" required/><br></br>
+                    Nota (3º Bimestre): <input type="number" name="f_notaTerceiroBimestre" min="0" max="10" step="0.01" required/><br></br>
+                    Nota (4º Bimestre): <input type="number" name="f_notaQuartoBimestre" min="0" max="10" step="0.01" required/><br></br>
+                    <div class="controles">
+                        <input class="btncal" type="submit" name="btn_calcular" value="Calcular" />
+                        <input class="btnres" type="reset" name="btn_apagar" value="Apagar" onclick="apagarForm()"/>  
+                    </div>       
+                </form>                   
+            </div> 
+            <div id="resultado"></div> 
+        </div>  
+    </div>
+
+    <div class="copyright">by Suenia Felix</div>
+   
+    
+
+<script>
+    let resultado= document.getElementById("resultado");
+    
+    function apagarForm(){
+        resultado.innerHTML = "";        
+    }
+    
+    /*Processamento de dados*/ 
+    function calcula(){
+
+        let notaPrimeiroBimestre;
+        let notaSegundoBimestre;
+        let notaTerceiroBimestre;
+        let notaQuartoBimestre;
+        let mediaFinal;
+        let somatorioNotas;
+
+        
+
+        notaPrimeiroBimestre = parseFloat(document.formCalcMedia.f_notaPrimeiroBimestre.value);
+        notaSegundoBimestre = parseFloat(document.formCalcMedia.f_notaSegundoBimestre.value);
+        notaTerceiroBimestre = parseFloat(document.formCalcMedia.f_notaTerceiroBimestre.value);
+        notaQuartoBimestre = parseFloat(document.formCalcMedia.f_notaQuartoBimestre.value);
+
+        somatorioNotas = notaPrimeiroBimestre + notaSegundoBimestre 
+        + notaTerceiroBimestre + notaQuartoBimestre;
+      
+        mediaFinal = (somatorioNotas/4);     
+        
+        let notaFixada = mediaFinal.toFixed(1);
+    
+        /*Estudo da situação final do aluno*/ 
+
+        if (mediaFinal>=7){
+            //document.write(`Situação Final: APROVADO! <br/> Média Final: ${js_mediaFinal}`);
+            resultado.innerHTML = `Situação do aluno(a): <br/><br/><span style="color: green;"> APROVADO!</span> <br/><br/> Média: ${notaFixada}`;
+        } else if (mediaFinal>=5){
+            //document.write(`Situação Final: RECUPERAÇÃO FINAL! <br/> Média Final: ${js_mediaFinal}`)
+            resultado.innerHTML = `Situação do aluno(a): <br/><span style="color: orange;"> RECUPERAÇÃO FINAL!</span> <br/> Média: ${notaFixada}`;
+        } else {
+            //document.write(`Situação Final: REPROVADO! <br/> Média Final: ${js_mediaFinal}`);
+            resultado.innerHTML = `Situação do aluno(a): <br/><span style="color: darkred;">REPROVADO!</span> <br/> Média: ${notaFixada}`;
+        }
+        return false;
+        
+    }
+</script>
+</body>
+</html>

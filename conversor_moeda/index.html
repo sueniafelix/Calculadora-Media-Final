@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <link href="conv_moeda.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body class="bg">
+
+    <h1>CONVERSOR DE MOEDAS</h1>
+
+    <div class="container">
+        <img class="logo-imersao" src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" alt="">
+        <br/>
+        <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="">
+    </div>    
+
+    <div class="content">
+
+        <form name="formConversor" action="" method="post" onsubmit="return converterMoeda()">            
+            <label>Converter de:</label>        
+            <select name="moeda_origem" id="moeda_origem" required>
+                <option value="BRL">Real (BRL) </option>        
+                <option value="USD">Dólar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+            </select>
+            <label>Para:</label>
+            <select name="moeda_destino" id="moeda_destino" required>
+                <option value="BRL">Real (BRL)</option>        
+                <option value="USD" selected >Dólar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+            </select>           
+
+            <div class= "valor">                 
+                <label>Valor:</label>
+                <input type="number" name="valor" step="0.01" min="1" id="valor" required>
+            </div>             
+
+            <div class= "btn">
+                <input type="submit" value="Converter"/>
+            </div>
+        </form>
+    </div>
+    
+    <div class= "resultado">
+        <h3>Resultado da conversão</h3>
+    </div>
+
+    <div class= "box">
+        <div class= "dados">
+            <label>Conversão de: </label>
+            <span id="dados_moeda_origem">Real(BRL)</span>
+            <br/>        
+            <label>Valor a converter: </label>
+            <span id="valor_a_converter">0,00</span>             
+        </div> 
+
+        <div class= "destino">
+            <label>Para: </label>
+            <span id="dados_moeda_destino">Dólar(USD)</span>
+            <br/>        
+            <label>Valor convertido: </label>
+            <span id="valor_convertido">0,00</span>                 
+        </div> 
+    </div>
+
+    <div>by Suenia Felix</div>
+
+ <script>
+
+    function converterMoeda(){
+
+        let valor = parseFloat(document.getElementById("valor").value);
+        let moedaOrigem = document.getElementById("moeda_origem");
+        let moedaDestino = document.getElementById("moeda_destino");
+        
+        let dadosMoedaOrigem = document.getElementById("dados_moeda_origem");
+        let valorAConverter = document.getElementById("valor_a_converter");
+        let dadosMoedaDestino = document.getElementById("dados_moeda_destino");
+        let valorConvertido = document.getElementById("valor_convertido");
+
+        let cotacao = 0;
+
+        valorAConverter.innerText = valor.toFixed(2);
+        dadosMoedaOrigem.innerText = moedaOrigem.options[moedaOrigem.selectedIndex].text;
+        dadosMoedaDestino.innerText = moedaDestino.options[moedaDestino.selectedIndex].text;
+                       
+        /*var text= sel.options[sel.selectedIndex].text;*/
+
+
+
+        if(moedaOrigem.value == "BRL" && moedaDestino.value == "USD"){
+            cotacao = 0.1883;            
+        } else if (moedaOrigem.value == "USD" && moedaDestino.value == "BRL"){
+            cotacao = 5.3097;
+        } else if (moedaOrigem.value == "BRL" && moedaDestino.value == "EUR"){
+            cotacao = 0.1605;
+        } else if (moedaOrigem.value == "EUR" && moedaDestino.value == "BRL"){
+            cotacao = 6.2293;
+        } else if (moedaOrigem.value == "USD" && moedaDestino.value == "EUR"){
+            cotacao = 0.8512
+        } else if (moedaOrigem.value == "EUR" && moedaDestino.value == "USD"){
+            cotacao = 1.1732
+        }
+
+        valorConvertido.innerText = valor * cotacao;
+
+        return false;
+    }
+    
+
+
+
+
+
+
+
+
+
+ </script>
+   
+    
+</body>
+</html>

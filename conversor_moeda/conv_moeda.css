@@ -1,0 +1,154 @@
+/*remove o estilo up/down do tipo number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    font-weight: bolder;
+    color: white; 
+    background: black;
+} 
+
+body::after {
+    content: "";
+    background: url('https://images6.alphacoders.com/565/thumb-1920-565154.jpg');
+    opacity: 0.2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color:black;
+    text-align: center;   
+    background-color: #fada06;  
+    margin-top: 0px; 
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-imersao {
+    width: 200px;
+}
+
+.icone-moeda {
+    max-width: 10px; 
+    max-height: 50px;
+    float: left;
+    background: url('image.jpg') no-repeat;
+    transform: scale(0.3, 0.3);
+    -ms-transform: scale(0.3, 0.3);
+    -webkit-transform: scale(0.3, 0.3);
+    padding-right: 500px;
+}
+
+.content {
+    width: 100%;        
+    display: flex;
+    flex-direction: row;
+    justify-content: center;     
+}
+
+label {
+   line-height: 40px;     
+   font-size: 16px;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    width: 80px;
+    height: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+.valor {
+    margin-left: 60px;
+}
+
+.valor input {
+    height: 25px;
+    width: 142px;
+    font-size: 14px;
+    background-color: rgb(233, 227, 227);
+}
+
+select {
+    height: 30px;
+    width: 150px;
+    text-align: center;
+    margin-bottom: 20px;  
+    font-size: 14px;  
+    background-color: rgb(233, 227, 227);
+}
+.btn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;  
+    
+}
+
+.btn input {
+    font-weight: bold;
+    font-size: 14px;
+    height: 25px;
+    color: black;
+    border: #fada06 solid 2px;
+    background-color: #fada06;   
+}
+
+.btn input:hover{
+    border-color: white;
+}
+
+.resultado {
+    text-align: center;
+    font-size: 18px;
+    padding-left: 30px;
+}
+
+.box {
+    -webkit-column-count: 2;
+    -moz-column-count:2;
+    column-count:2;
+}
+
+.dados {
+    margin-left: 280px;
+    border: #fada06 solid 1px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 14px;       
+}
+.dados span {
+    color: rgb(184, 179, 179);
+    font-weight: 200px;
+    
+}
+
+.destino {
+    margin-left: 5px;
+    border: #fada06 solid 1px;
+    width: 350px;
+    padding-left: 20px;
+    font-size: 14px;
+}
+
+.destino span {
+    color: rgb(184, 179, 179);
+    font-weight: 200px;
+}

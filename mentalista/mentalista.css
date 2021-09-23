@@ -1,0 +1,115 @@
+/*remove o estilo up/down do tipo number*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: lighter;
+}
+
+.logo span {
+  width: 80px;
+  height: 40px;
+  background-color: lime;
+  padding: 3px;
+  text-align: center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.btn {
+  font-weight: bold;
+  font-size: 14px;
+  height: 25px;
+  width: 100px;
+  color: black;
+  border: none;
+  background-color: rgb(47, 243, 47); 
+}
+
+.btn:hover {
+  background-color: rgb(136, 241, 136);
+}
+
+.hide {
+  display: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-weight: bolder;
+  color: white; 
+  background: black;
+  text-align: center;
+  margin-top: 30px;
+}
+
+body::after {
+  content: "";
+  background: url('https://www.protocoloxp.com.br/wp-content/uploads/2019/06/164853025-the-riddler-wallpapers.jpg') center;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+  background-size: 100%;
+}
+
+.h1 {
+  font-size: 20px;
+  
+}
+
+.text-glow {
+  font-size: 4em;
+  color: #FFFFFF;
+  font-family: Arial;
+  text-shadow: 1px 0px 20px lime;
+  -webkit-transition: 1s linear 0s;
+  -moz-transition: 1s linear 0s;
+  -o-transition: 1s linear 0s;
+  transition: 1s linear 0s;
+  outline: 0 none;
+}
+
+.subtitulo {
+  margin-top: 50px;
+}
+
+.label {
+ font-size: 16px;
+
+}
+
+.valor {
+  margin-top: 5px;
+  height: 25px;
+  width: 80px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  background-color: rgb(233, 227, 227);
+}
+
+.chutar {
+  margin-top: 30px;
+    
+}
+
+#reiniciar {
+  height: 25px;
+  width: 150px;
+  margin-top: 40px;
+}
+
+
+
