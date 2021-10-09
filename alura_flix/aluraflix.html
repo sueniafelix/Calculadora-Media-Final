@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AluraFlix</title>
+    <link href="aluraflix.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1 class="titulo"> Aluraflix</h1>
+            <!-- <a href="https://alura.com.br/" target="_blank">
+                <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+            </a>-->
+            <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
+            <img src= "https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-aluraflix.svg" class="page-logo" alt="">
+            
+            <p class="page-subtitle"> Meus filmes favoritos!</p>
+            <input type="text" id="urlcapa" placeholder="Insira endereço da imagem">
+            <input typt="text" id="urlvideo"  placeholder="Insira a url do vídeo"><br/>
+            <button class="btn" type="submit" id="adicionar" onclick="adicionarTitulo()">Adicionar Filme</button>
+        </div>
+    </div>
+    <div class="lista-filmes"></div>
+                
+<script>  
+
+    let titulos = [
+        {
+            urlCapa:"https://upload.wikimedia.org/wikipedia/pt/7/76/10_Things_I_Hate_About_You.jpg",
+            urlVideo:"https://youtu.be/2f8_0uvnHYw"
+        },
+        {
+            urlCapa:"https://jefersonperes.com.br/wp-content/uploads/2017/02/Um-senhor-estagi%C3%A1rio.jpg",
+            urlVideo:"https://youtu.be/jHG8TaEBhKI"            
+        },
+        {
+            urlCapa:"https://br.web.img2.acsta.net/pictures/16/02/03/19/11/303307.jpg",
+            urlVideo:"https://youtu.be/CbJGH4ahPSU"
+        },
+        {
+            urlCapa:"https://upload.wikimedia.org/wikipedia/pt/d/da/Minha_M%C3%A3e_%C3%A9_uma_Pe%C3%A7a.jpg",
+            urlVideo:"https://youtu.be/XInwBgS-44w"
+        },
+        {
+            urlCapa:"https://upload.wikimedia.org/wikipedia/pt/c/cb/Vai-que-cola-o-filme_%28p%C3%B4ster%29.png",
+            urlVideo:"https://youtu.be/7vxVKEOEwqU"
+        },
+        {
+            urlCapa:"https://a-static.mlcdn.com.br/574x431/dvd-a-saga-crepusculo-eclipse-kristen-stewart-robert-pattinson-1/discocenter/fdc4315abaff11eb83084201ac18500e/84b754a44a1e2ea86d5faf64cc05035c.jpg",
+            urlVideo:"https://youtu.be/0WxeTLJOVss"
+        },
+        {
+            urlCapa:"https://a-static.mlcdn.com.br/574x431/livro-crepusculo-ed-filme/magazineluiza/227480500/84de90c4cdb7fb7236c58980d26bde1b.jpg",
+            urlVideo:"https://youtu.be/Ru8THEGdcEUs"
+        },
+        {
+            urlCapa:"https://br.web.img3.acsta.net/r_1280_720/pictures/16/03/30/18/58/593834.jpg",
+            urlVideo:"https://youtu.be/lMFM6ciFkFc"
+        },
+        {
+            urlCapa:"https://upload.wikimedia.org/wikipedia/pt/thumb/0/0d/EsdlaIII.jpg/250px-EsdlaIII.jpg",
+            urlVideo:"https://youtu.be/0i86oM1nHjM"
+        },
+        {
+            urlCapa:"https://br.web.img3.acsta.net/c_310_420/pictures/16/02/14/13/03/358252.jpg",
+            urlVideo:"https://youtu.be/vdlnL0D8Tws"
+        }
+        
+    ];
+
+    listarTitulos();
+
+    function listarTitulos(){
+
+        let elementoListaTitulos = document.getElementsByClassName("lista-filmes")[0];
+        elementoListaTitulos.innerHTML = ""
+
+        for(let titulo of titulos){
+            console.log(titulo);
+
+            let elementoTitulo =  '<a href="' + titulo.urlVideo + '" target="_blank"><img src="' + titulo.urlCapa + '"></a>';            
+            elementoListaTitulos.innerHTML = elementoListaTitulos.innerHTML + elementoTitulo;
+        }              
+    }
+    function adicionarTitulo(){
+        
+        let novoTitulo = {
+            urlCapa: document.getElementById("urlcapa").value,
+            urlVideo: document.getElementById("urlvideo").value
+        }
+        
+        if (novoTitulo.urlCapa.endsWith(".jpg")) {
+            titulos.unshift(novoTitulo);
+            listarTitulos();
+        } else {
+            alert("Endereço do filme inválido");
+            document.getElementById("urlcapa").value = "";
+        }
+    }
+  
+      
+    
+</script>
+
+</body>
+</html>

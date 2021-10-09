@@ -1,0 +1,89 @@
+.titulo {
+    color:white;
+    margin: 0 0 20px;
+    font-size: 60px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: darkred;
+    font-size: 5em; color: white;    
+}
+
+.page-subtitle {
+    color: white;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: darkred;
+    font-size: 2em; color: white;
+}
+
+.page-logo {
+    width: 200px;
+}
+
+.alura-logo {
+    width: 40px;
+    top: 50px;
+    right: 50px;
+    position:absolute;   
+}
+
+body::after {
+    content: "";
+    background: url('https://st4.depositphotos.com/4278641/20042/i/600/depositphotos_200422314-stock-photo-shiny-red-bokeh-background.jpg') center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: -1;   
+    background-repeat: no-repeat center center fixed;
+}
+
+.container {
+    text-align: center;
+    width: 100%;        
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+input {
+    height: 28px ;
+    width: 250px;
+    font-size: 14px;
+    text-align: center;
+    margin: 5px;
+}
+
+.btn {   
+    font-weight: bold;
+    font-size: 14px;
+    height: 35px;
+    width: 150px;
+    color: white;
+    border:darkred 2px solid;
+    background-color: red;      
+    margin-top: 5px;
+}
+
+.btn:hover {
+    background-color: lightcoral;
+}
+
+.lista-filmes {
+text-align: center;
+}
+
+.lista-filmes img {
+    margin: 10px;
+    max-height: 250px;
+    border: darkred 1px solid;    
+}
+
+img:hover {
+    transform: scale(1.2);
+    transition: transform 0.1s ease-out;
+}
